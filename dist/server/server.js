@@ -23,6 +23,9 @@ class App {
                 console.log('Client disconnected');
             });
         });
+        setInterval(() => {
+            this.io.emit('random', Math.floor(Math.random() * 10));
+        }, 1000);
     }
     Start() {
         this.server.listen(this.port, () => {
