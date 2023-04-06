@@ -1,0 +1,23 @@
+{
+  "name": "tssocktutorial",
+  "version": "1.0.0",
+  "description": "tssocktutorial",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/OmarMWarraich/tssock-tutorial.git"
+  },
+  "keywords": [
+    "socket.io",
+    "typescript"
+  ],
+  "author": "OmarMWarraich",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/OmarMWarraich/tssock-tutorial/issues"
+  },
+  "homepage": "https://github.com/OmarMWarraich/tssock-tutorial#readme"
+}
