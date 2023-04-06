@@ -18,6 +18,7 @@ class App {
         this.io.on('connection', (socket) => {
             console.log('Client connected');
             socket.emit('message', 'Hello from server' + socket.id);
+            socket.broadcast.emit('message', 'A new user has joined the chat' + socket.id);
             socket.on('disconnect', () => {
                 console.log('Client disconnected');
             });
