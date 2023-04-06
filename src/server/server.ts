@@ -9,14 +9,24 @@ class App {
     private server: http.Server;
     private port: number;
 
+    private io: socketIO.Server;
+
     constructor(port: number) {
         this.port = port;
 
         const app = express();
-        app.use(express.static(path.join(__dirname, 'client')));
+        app.use(express.static(path.join(__dirname, '../client')));
 
         this.server = new http.Server(app);
-        const io = new socketIO.Server(this.server);
+        this.io = new socketIO.Server(this.server);
+
+        this.io.on('connection', (socket: socketIO.Socket) => {
+            console.log('Client connected');
+
+            socket.on('disconnect', () => {
+                console.log('Client disconnected');
+            });
+        });
     }
 
     public Start() {

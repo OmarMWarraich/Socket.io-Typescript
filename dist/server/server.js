@@ -12,9 +12,15 @@ class App {
     constructor(port) {
         this.port = port;
         const app = (0, express_1.default)();
-        app.use(express_1.default.static(path_1.default.join(__dirname, 'client')));
+        app.use(express_1.default.static(path_1.default.join(__dirname, '../client')));
         this.server = new http_1.default.Server(app);
-        const io = new socket_io_1.default.Server(this.server);
+        this.io = new socket_io_1.default.Server(this.server);
+        this.io.on('connection', (socket) => {
+            console.log('Client connected');
+            socket.on('disconnect', () => {
+                console.log('Client disconnected');
+            });
+        });
     }
     Start() {
         this.server.listen(this.port, () => {
