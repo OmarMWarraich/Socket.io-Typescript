@@ -15,14 +15,15 @@ class Client {
                 'Disconnected from server' + message + '<br>';
         });
 
-        this.socket.on('message', function (message: any) {
+        this.socket.on('message', (message: any) => {
             console.log(message);
-            document.body.innerHTML += message + '<br>';
+            document.body.innerHTML += message + '<br>'
+            this.socket.emit('message', 'Hello from client');
         });
 
         this.socket.on('random', function (message: any) {
             console.log(message);
-            document.body.innerHTML += 'Winning number is ' + message + '<br/>'
+            document.body.innerHTML += message + '<br/>'
         });
     }
 }

@@ -41,6 +41,10 @@ class App {
             socket.on('disconnect', () => {
                 console.log('Client disconnected');
             });
+
+            socket.on('message', function(message: any) {
+                console.log(message);
+            });
         });
         setInterval(() => {
             let randomNumber: number = Math.floor(Math.random() * 10);
