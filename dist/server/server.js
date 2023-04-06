@@ -17,6 +17,7 @@ class App {
         this.io = new socket_io_1.default.Server(this.server);
         this.io.on('connection', (socket) => {
             console.log('Client connected');
+            socket.emit('message', 'Hello from server' + socket.id);
             socket.on('disconnect', () => {
                 console.log('Client disconnected');
             });
